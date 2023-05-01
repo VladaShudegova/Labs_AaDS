@@ -1,0 +1,7 @@
+# ninja log v5
+6	514	1682170880235569937	CMakeFiles/Labs_Tree.dir/BinaryTreeTester.cpp.o	66b1e9500034ddde
+7	585	1680586880204865275	CMakeFiles/Labs_Tree.dir/Node.cpp.o	75fecacb8059d812
+6	602	1682170979726356100	CMakeFiles/Labs_Tree.dir/main.cpp.o	149ab527a0ef2015
+6	871	1682169820674092700	CMakeFiles/Labs_Tree.dir/BinaryTree.cpp.o	8684d72236033725
+385	437	1680451685863299377	Labs_Tree	61a1cdc618abc825
+0	79	1682972468624330721	build.ninja	33d152f30e2ba766
