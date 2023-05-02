@@ -263,7 +263,6 @@ int BinaryTree::getSum(Node* node) const {
     }
 }
 
-
 void BinaryTree::printHorizontal(Node *root, int marginLeft, int levelSpacing) const
 {
     if (root == nullptr) {
@@ -272,6 +271,10 @@ void BinaryTree::printHorizontal(Node *root, int marginLeft, int levelSpacing) c
     printHorizontal(root->getRight(), marginLeft + levelSpacing, levelSpacing);
     std::cout << std::string(marginLeft, ' ') << root->getKey() << std::endl;
     printHorizontal(root->getLeft(), marginLeft + levelSpacing, levelSpacing);
+}
+
+void BinaryTree::print() const{
+    printHorizontal(this->m_root, 30,30);
 }
 
 void BinaryTree::printLevel(int level) const {

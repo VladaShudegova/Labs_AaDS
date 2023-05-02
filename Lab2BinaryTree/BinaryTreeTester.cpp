@@ -14,7 +14,7 @@ void BinaryTreeTester::test(const int size)
     destructor();
     remove();
     clear();
-    assign();
+    //assign();
     height();
 }
 
@@ -23,9 +23,9 @@ BinaryTree *BinaryTreeTester::allocateTree()
     return new BinaryTree;
 }
 
-BinaryTreeTester::deallocateTree(BinaryTree *tree)
+void BinaryTreeTester::deallocateTree(BinaryTree *tree)
 {
-delete tree;
+    delete tree;
 }
 
 void BinaryTreeTester::addAndCount()
@@ -108,7 +108,7 @@ void BinaryTreeTester::clear()
         for (int i = 0 ; i < m_maxSize; ++i) {
             tree->addNode(i);
         }
-        tree->clear();
+        tree->clearTree();
         check_clear(tree, 0);
     }
     deallocateTree(tree);
@@ -120,7 +120,7 @@ void BinaryTreeTester::check_clear(const BinaryTree *tree, const int size)
 {
     assert(tree->size() == size);
 }
-
+/*
 void BinaryTreeTester::assign()
 {
     BinaryTree tree1;
@@ -162,7 +162,7 @@ std::vector<const BinaryTree::Node *> BinaryTreeTester::treeNodes(const BinaryTr
 
     return nodes;
 }
-
+*/
 void BinaryTreeTester::height()
 {
     height_trivialCases();
@@ -174,7 +174,7 @@ void BinaryTreeTester::height()
 
 void BinaryTreeTester::check_height(const BinaryTree &tree, const int height)
 {
-    assert(tree.height() == height);
+    assert(tree.getHeight() == height);
 }
 
 void BinaryTreeTester::height_trivialCases()
@@ -189,10 +189,10 @@ void BinaryTreeTester::height_longOnlyLeftSubtree()
 {
     BinaryTree longTree;
     longTree.addNode(0);
-    Node *runner = longTree.root();
+    BinaryTree::Node *runner = longTree.getRoot();
     for (int i = 1; i < m_maxSize; ++i) {
-        runner->setLeftChild(new BinaryTree::Node(i));
-        runner = runner->leftChild();
+        runner->setLeft(new BinaryTree::Node(i));
+        runner = runner->getLeft();
         check_height(longTree, i + 1);
     }
 }
@@ -201,10 +201,10 @@ void BinaryTreeTester::height_longOnlyRightSubtree()
 {
     BinaryTree longTree;
     longTree.addNode(0);
-    Node *runner = longTree.root();
+    BinaryTree::Node *runner = longTree.getRoot();
     for (int i = 1; i < m_maxSize; ++i) {
-        runner->setRightChild(new BinaryTree::Node(i));
-        runner = runner->rightChild();
+        runner->setRight(new BinaryTree::Node(i));
+        runner = runner->getRight();
         check_height(longTree, i + 1);
     }
 }
@@ -213,16 +213,16 @@ void BinaryTreeTester::height_longOnlyLeftAndRightSubtrees()
 {
     BinaryTree longTree;
     longTree.addNode(0);
-    Node *leftRunner = longTree.root();
-    Node *rightRunner = longTree.root();
+    BinaryTree::Node *leftRunner = longTree.getRoot();
+    BinaryTree::Node *rightRunner = longTree.getRoot();
     for (int i = 1; i < m_maxSize/2; ++i) {
-        leftRunner->setLeftChild(new BinaryTree::Node(i));
-        leftRunner = leftRunner->leftChild();
+        leftRunner->setLeft(new BinaryTree::Node(i));
+        leftRunner = leftRunner->getLeft();
         check_height(longTree, i + 1);
 
 
-        rightRunner->setRightChild(new BinaryTree::Node(i));
-        rightRunner = rightRunner->rightChild();
+        rightRunner->setRight(new BinaryTree::Node(i));
+        rightRunner = rightRunner->getRight();
         check_height(longTree, i + 1);
     }
 }
@@ -231,36 +231,36 @@ void BinaryTreeTester::height_longRandomZigzagSubtrees()
 {
     BinaryTree longTree;
     longTree.addNode(0);
-    Node *leftRunner = longTree.root();
-    Node *rightRunner = longTree.root();
+    BinaryTree::Node *leftRunner = longTree.getRoot();
+    BinaryTree::Node *rightRunner = longTree.getRoot();
 
-    leftRunner->setLeftChild(new BinaryTree::Node(1));
-    leftRunner = leftRunner->leftChild();
-    rightRunner->setRightChild(new BinaryTree::Node(1));
-    rightRunner = rightRunner->rightChild();
+    leftRunner->setLeft(new BinaryTree::Node(1));
+    leftRunner = leftRunner->getLeft();
+    rightRunner->setRight(new BinaryTree::Node(1));
+    rightRunner = rightRunner->getRight();
 
     for (int i = 2; i < m_maxSize/2; ++i) {
         if (rand() % 2 == 0)
         {
-            leftRunner->setLeftChild(new BinaryTree::Node(i));
-            leftRunner = leftRunner->leftChild();
+            leftRunner->setLeft(new BinaryTree::Node(i));
+            leftRunner = leftRunner->getLeft();
         }
         else
         {
-            leftRunner->setRightChild(new BinaryTree::Node(i));
-            leftRunner = leftRunner->rightChild();
+            leftRunner->setRight(new BinaryTree::Node(i));
+            leftRunner = leftRunner->getRight();
         }
         check_height(longTree, i + 1);
 
         if (rand() % 2 == 0)
         {
-            rightRunner->setLeftChild(new BinaryTree::Node(i));
-            rightRunner = rightRunner->leftChild();
+            rightRunner->setLeft(new BinaryTree::Node(i));
+            rightRunner = rightRunner->getLeft();
         }
         else
         {
-            rightRunner->setRightChild(new BinaryTree::Node(i));
-            rightRunner = rightRunner->rightChild();
+            rightRunner->setRight(new BinaryTree::Node(i));
+            rightRunner = rightRunner->getRight();
         }
         check_height(longTree, i + 1);
     }

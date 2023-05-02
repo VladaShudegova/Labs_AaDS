@@ -98,6 +98,7 @@ public:
 
 
     void printHorizontal(Node *root, int marginLeft, int levelSpacing) const;
+    void print() const;
 
     void printLevel(int level) const;
 
