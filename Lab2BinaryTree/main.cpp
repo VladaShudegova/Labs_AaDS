@@ -66,6 +66,9 @@ void refillAndPrint(BinaryTree &tree)
 
 int main()
 {
+    BinaryTreeTester tester(true);
+    tester.test(30);
+
 
     return 0;
 }

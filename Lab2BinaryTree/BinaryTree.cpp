@@ -12,9 +12,13 @@ using std::min;
 using std::string;
 
 
-BinaryTree::BinaryTree() :
-        m_root(new Node())
-{}
+//BinaryTree::BinaryTree() :
+//        m_root(new Node())
+//{}
+
+BinaryTree::BinaryTree(){
+    m_root = nullptr;
+}
 
 BinaryTree::BinaryTree(const BinaryTree& other) {
     if (other.m_root == nullptr) {
@@ -62,17 +66,24 @@ BinaryTree::Node *BinaryTree::addNode(int key)
 
 
 void BinaryTree::deleteChildren(Node* node) {
-    if (node->getLeft()) {
+
+    if (node->getLeft() != nullptr) {
         deleteChildren(node->getLeft());
     }
-    if (node->getRight()) {
+    if (node->getRight() != nullptr) {
         deleteChildren(node->getRight());
     }
     delete node;
 }
 
 void BinaryTree::clearTree() {
-    deleteChildren(m_root);
+    if (m_root != nullptr)
+    {
+
+        delete m_root;
+        m_root = nullptr;
+    }
+    //deleteChildren(m_root);
 }
 
 bool BinaryTree::isEmpty() const {
@@ -274,7 +285,7 @@ void BinaryTree::printHorizontal(Node *root, int marginLeft, int levelSpacing) c
 }
 
 void BinaryTree::print() const{
-    printHorizontal(this->m_root, 30,30);
+    printHorizontal(this->m_root, 3,6);
 }
 
 void BinaryTree::printLevel(int level) const {

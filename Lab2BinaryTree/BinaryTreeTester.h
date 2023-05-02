@@ -30,7 +30,7 @@ private:
     void height_longOnlyRightSubtree();
     void height_longOnlyLeftAndRightSubtrees();
     void height_longRandomZigzagSubtrees();
-    //std::vector<const BinaryTree::Node *> BinaryTreeTester::treeNodes(const BinaryTree *tree);
+    std::vector<const BinaryTree::Node *> treeNodes(const BinaryTree *tree);
 
 private:
     int m_maxSize;

@@ -3,6 +3,7 @@ using std::cout;
 using std::endl;
 using std::vector;
 using std::string;
+
 BinaryTreeTester::BinaryTreeTester(const bool useConsoleOutput)
         : m_useConsoleOutput(useConsoleOutput)
 {}
@@ -14,7 +15,7 @@ void BinaryTreeTester::test(const int size)
     destructor();
     remove();
     clear();
-    //assign();
+    assign();
     height();
 }
 
@@ -57,7 +58,7 @@ void BinaryTreeTester::destructor()
         }
         deallocateTree(tree);
     }
-    cout << "BinaryTreeTester::destructor ended. Press any key to continue..." << std::endl;
+    cout << "BinaryTreeTester::destructor ended. Press any key to continue..." << endl;
     getchar();
 
 }
@@ -81,10 +82,11 @@ void BinaryTreeTester::remove()
 
         tree->removeNode(invalidKey);
         check_remove(tree, nodeKeys.size());
-
+        cout<<"-----------------------Remove node whith key "<< nodeKeys[removedNodeIndex] <<"---------------------------------"<<endl;
         tree->removeNode(nodeKeys[removedNodeIndex]);
         nodeKeys.erase(nodeKeys.begin() + removedNodeIndex);
         check_remove(tree, nodeKeys.size());
+
         if (m_useConsoleOutput)
             tree->print();
     }
@@ -93,6 +95,8 @@ void BinaryTreeTester::remove()
     tree->removeNode(invalidKey);
     check_remove(tree, nodeKeys.size());
     deallocateTree(tree);
+    cout << "BinaryTreeTester::remove ended. Press any key to continue..." << endl;
+    getchar();
 }
 
 void BinaryTreeTester::check_remove(const BinaryTree *tree, const int size)
@@ -120,12 +124,12 @@ void BinaryTreeTester::check_clear(const BinaryTree *tree, const int size)
 {
     assert(tree->size() == size);
 }
-/*
+
 void BinaryTreeTester::assign()
 {
     BinaryTree tree1;
 
-    for (int i = 0 ; i < size; ++i) {
+    for (int i = 0 ; i < m_maxSize; ++i) {
         tree1.addNode(i);
     }
 
@@ -162,7 +166,7 @@ std::vector<const BinaryTree::Node *> BinaryTreeTester::treeNodes(const BinaryTr
 
     return nodes;
 }
-*/
+
 void BinaryTreeTester::height()
 {
     height_trivialCases();
