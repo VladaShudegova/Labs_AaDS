@@ -135,20 +135,20 @@ void BinaryTreeTester::assign()
 
     BinaryTree tree2 = tree1; //Конструктор копирования
 
-    std::vector<BinaryTree::Node *> tree1Nodes = treeNodes(tree1);
-    std::vector<BinaryTree::Node *> tree2Nodes = treeNodes(tree2);
+//    std::vector<BinaryTree::Node *> tree1Nodes = treeNodes(tree1);
+//    std::vector<BinaryTree::Node *> tree2Nodes = treeNodes(tree2);
 
     //FixMe: доделать проверку
 
     tree1 = tree2; //Присваивание
 
-    tree1Nodes = treeNodes(tree1);
-    tree2Nodes = treeNodes(tree2);
+//    tree1Nodes = treeNodes(tree1);
+//    tree2Nodes = treeNodes(tree2);
 
     //FixMe: доделать проверку
 }
 
-std::vector<const BinaryTree::Node *> BinaryTreeTester::treeNodes(const BinaryTree *tree)
+/*std::vector<const BinaryTree::Node *> BinaryTreeTester::treeNodes(const BinaryTree *tree)
 {
     std::vector<const BinaryTree::Node *> nodes;
 
@@ -166,7 +166,7 @@ std::vector<const BinaryTree::Node *> BinaryTreeTester::treeNodes(const BinaryTr
 
     return nodes;
 }
-
+*/
 void BinaryTreeTester::height()
 {
     height_trivialCases();

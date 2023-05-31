@@ -69,6 +69,7 @@ int main()
     BinaryTreeTester tester(true);
     tester.test(30);
 
-
+    BinaryTree tree = ten_child_tree();
+    tree.printHorizontal(tree.getRoot(), 5,5);
     return 0;
 }
