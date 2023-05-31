@@ -14,7 +14,8 @@ using std::cout;
 using std::string;
 using std::vector;
 
-const string path = "/Users/vladashudegova/dev/repos/Labs_AaDS/Lab1ExternalSorts/files/";
+//const string path = "/Users/vladashudegova/dev/repos/Labs_AaDS/Lab1ExternalSorts/files/";
+const string path = "/Users/vladashudegova/dev/repos/Labs_AaDS/Lab1ExternalSorts/Lab1ExternalSorts/files/";
 
 bool isFileContainsSortedArray(const string& fileName)
 {
@@ -178,9 +179,6 @@ string sortedArray(const vector<string> &fileNames){
         }else{
             return fileNames[i];
         }
-        //isEmpty(fileNames[i]) ? i++ : return fileNames[i];
-        
-        
     }
     return "errorFile";
 }
