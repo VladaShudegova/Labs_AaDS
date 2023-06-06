@@ -45,9 +45,6 @@ bool isFileContainsSortedArray(const string& fileName)
     return true;
 }
 
-
-
-
 void splitFiles(const string& inputFileName, const string& outputFile1, const string& outputFile2){
 
     ifstream inputFile;
@@ -238,7 +235,7 @@ int createAndSortFile(const string& fileName, const int numbersCount, const int 
 
     string checkSort = straightMerge(fileName);
 
-    cout<<checkSort<<endl;
+    //cout<<checkSort<<endl;
     if (!isFileContainsSortedArray(checkSort))
     {
         return -2;
