@@ -27,12 +27,15 @@ BinaryTree::BinaryTree(const BinaryTree& other) {
     }
     m_root = other.m_root->copyNode();
 }
+
 BinaryTree::BinaryTree(int key) {
     m_root = new Node(key);
 }
+
 BinaryTree::BinaryTree(Node* root) {
     m_root = root;
 }
+
 BinaryTree::~BinaryTree() {
     clearTree();
 }
@@ -41,8 +44,7 @@ BinaryTree::Node* BinaryTree::getRoot() {
     return m_root;
 }
 
-BinaryTree::Node* BinaryTree::addNode(Node* root, int key)
-{
+BinaryTree::Node* BinaryTree::addNode(Node* root, int key) {
     if (!root) {
         root = new Node(key);
     }
@@ -57,8 +59,7 @@ BinaryTree::Node* BinaryTree::addNode(Node* root, int key)
 }
 
 
-BinaryTree::Node* BinaryTree::addNode(int key)
-{
+BinaryTree::Node* BinaryTree::addNode(int key) {
     if (m_root) {
         return addNode(m_root, key);
     }
@@ -69,13 +70,13 @@ BinaryTree::Node* BinaryTree::addNode(int key)
 
 
 void BinaryTree::deleteChildren(Node* node) {
-
     if (node->getLeft() != nullptr) {
         deleteChildren(node->getLeft());
     }
     if (node->getRight() != nullptr) {
         deleteChildren(node->getRight());
     }
+
     delete node;
 }
 

@@ -47,7 +47,6 @@ public:
     Node* addNode(int key);
 
     void deleteChildren(Node* node);
-
     void clearTree();
 
     bool isEmpty() const;
