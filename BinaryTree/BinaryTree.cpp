@@ -120,33 +120,33 @@ int BinaryTree::getCount(const Node* node) const {
     return getCount(node->getLeft()) + getCount(node->getRight()) + 1;
 }
 
-int BinaryTree::getMaxKey() {
+int BinaryTree::getMaxKey() const {
     return getMaxKey(m_root);
 }
 
-int BinaryTree::getMaxKey(Node* node) {
+int BinaryTree::getMaxKey(Node* node) const {
     if (node == nullptr) {
         return INT_MAX;
     }
     return max(node->getKey(), max(getMaxKey(node->getLeft()), getMaxKey(node->getRight())));
 }
 
-int BinaryTree::getMinKey() {
+int BinaryTree::getMinKey() const {
     return getMinKey(m_root);
 }
 
-int BinaryTree::getMinKey(Node* node) {
+int BinaryTree::getMinKey(Node* node) const {
     if (node == nullptr) {
         return INT_MIN;
     }
     return max(node->getKey(), max(getMinKey(node->getLeft()), getMinKey(node->getRight())));
 }
 
-bool BinaryTree::removeNode(int key) {
+bool BinaryTree::removeNode(const int key) {
     return removeNode(m_root, key, nullptr);
 }
 
-bool BinaryTree::removeNode(Node* node, int key, Node* parent) {
+bool BinaryTree::removeNode(Node* node, const int key, Node* parent) {
     if (node == nullptr) {
         return false;
     }
@@ -202,11 +202,11 @@ bool BinaryTree::removeNode(Node* node, int key, Node* parent) {
     return removeNode(node->getLeft(), key, node) || removeNode(node->getRight(), key, node);
 }
 
-BinaryTree::Node* BinaryTree::search(int key) const {
+BinaryTree::Node* BinaryTree::search(const int key) const {
     return search(m_root, key);
 }
 
-BinaryTree::Node* BinaryTree::search(BinaryTree::Node* node, int key) const {
+BinaryTree::Node* BinaryTree::search(BinaryTree::Node* node, const int key) const {
     if (node == nullptr || node->getKey() == key) {
         return node;
     }
@@ -232,11 +232,11 @@ void BinaryTree::getVector(BinaryTree::Node* node, vector<int>& result) const {
     }
 }
 
-int BinaryTree::getLevel(int key) {
+int BinaryTree::getLevel(const int key) const {
     return BinaryTree::getLevel(m_root, key);
 }
 
-int BinaryTree::getLevel(Node* node, int key) {
+int BinaryTree::getLevel(Node* node, const int key) const {
     if (node == nullptr) {
         return -1;
     }
@@ -254,7 +254,7 @@ int BinaryTree::getLevel(Node* node, int key) {
     return -1;
 }
 
-bool BinaryTree::isBalanced(Node* node) {
+bool BinaryTree::isBalanced(Node* node) const {
     if (node == nullptr) {
         return true;
     }
@@ -279,7 +279,7 @@ int BinaryTree::getSum(Node* node) const {
     }
 }
 
-void BinaryTree::printHorizontal(Node* root, int marginLeft, int levelSpacing) const
+void BinaryTree::printHorizontal(Node* root, const int marginLeft, const int levelSpacing) const
 {
     if (root == nullptr) {
         return;

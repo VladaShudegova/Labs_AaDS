@@ -60,31 +60,31 @@ public:
 
     int getCount(const Node* node) const;
 
-    int getMaxKey();
-    virtual int getMaxKey(Node* node);
+    int getMaxKey() const;
+    virtual int getMaxKey(Node* node) const;
 
-    int getMinKey();
-    virtual int getMinKey(Node* node);
+    int getMinKey() const;
+    virtual int getMinKey(Node* node) const;
 
-    bool removeNode(int key);
-    virtual bool removeNode(Node* node, int key, Node* parent);
+    bool removeNode(const int key);
+    virtual bool removeNode(Node* node, const int key, Node* parent);
 
-    Node* search(int key) const;
-    Node* search(Node* node, int key) const;
+    Node* search(const int key) const;
+    Node* search(Node* node, const int key) const;
 
     std::vector<int> getVector() const;
 
     void getVector(Node* node, std::vector<int>& result) const;
 
-    int getLevel(int key);
-    virtual int getLevel(Node* node, int key);
+    int getLevel(const int key) const;
+    virtual int getLevel(Node* node, const int key) const;
 
-    bool isBalanced(Node* node);
+    bool isBalanced(Node* node) const;
 
     int getSum() const;
     int getSum(Node* node) const;
 
-    void printHorizontal(Node* root, int marginLeft, int levelSpacing) const;
+    void printHorizontal(Node* root, const int marginLeft, const int levelSpacing) const;
     void print() const;
     void printLevel(int level) const;
     void printByLevels(Node* root) const;

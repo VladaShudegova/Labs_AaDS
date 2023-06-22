@@ -4,11 +4,4 @@ C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTree.cpp(304,2
 C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTree.cpp(311,52): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTree.cpp(340,49): warning C4244: =: преобразование "double" в "int", возможна потеря данных
 C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTree.cpp(356,42): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  BinaryTreeTester.cpp
-C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTreeTester.cpp(82,39): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
-C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTreeTester.cpp(93,43): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
-C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTreeTester.cpp(97,43): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
-C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\BinaryTreeTester.cpp(105,39): warning C4267: аргумент: преобразование из "size_t" в "const int"; возможна потеря данных
-  main.cpp
-  Создание кода...
   BinaryTree.vcxproj -> C:\Users\b.r.niiazaliev\developing\Cpp\Labs_AaDS\BinaryTree\x64\Debug\BinaryTree.exe
