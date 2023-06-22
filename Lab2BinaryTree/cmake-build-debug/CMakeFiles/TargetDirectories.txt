@@ -1,3 +1,0 @@
-/Users/vladashudegova/dev/repos/Labs_AaDS/Lab2BinaryTree/cmake-build-debug/CMakeFiles/Labs_Tree.dir
-/Users/vladashudegova/dev/repos/Labs_AaDS/Lab2BinaryTree/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/vladashudegova/dev/repos/Labs_AaDS/Lab2BinaryTree/cmake-build-debug/CMakeFiles/rebuild_cache.dir
