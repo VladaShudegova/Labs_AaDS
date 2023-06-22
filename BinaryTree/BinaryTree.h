@@ -91,7 +91,7 @@ public:
 
     BinaryTree& operator=(const BinaryTree& other);
 
-private:
+protected:
     Node* m_root;
 
 };

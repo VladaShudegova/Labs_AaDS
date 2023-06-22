@@ -14,18 +14,16 @@ public:
 protected:
     // service
     virtual BinaryTree* allocateTree();
-    
+    void deallocateTree(BinaryTree* tree);
+    void pressToContinue(const std::string& testName);
+
+    // assertions
     virtual void check_addAndCount(const BinaryTree* tree, const int size);
     virtual void check_remove(const BinaryTree* tree, const int size);
     virtual void check_clear(const BinaryTree* tree, const int size);
     virtual void check_assign(const std::vector<int> firstTreeNodes, const std::vector<int> secondTreeNodes);
     virtual void check_height(const BinaryTree& tree, const int size);
 
-private:
-    // service
-    void deallocateTree(BinaryTree* tree);
-    void pressToContinue(const std::string& testName);
-    
     // tests
     void addAndCount();
     void destructor();
@@ -38,9 +36,8 @@ private:
     void height_longOnlyRightSubtree();
     void height_longOnlyLeftAndRightSubtrees();
     void height_longRandomZigzagSubtrees();
-    std::vector<const BinaryTree::Node*> treeNodes(const BinaryTree* tree);
 
-private:
+protected:
     int m_maxSize;
     bool m_useConsoleOutput;
 };
