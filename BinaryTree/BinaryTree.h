@@ -43,8 +43,8 @@ public:
 
     Node* getRoot();
 
-    Node* addNode(Node* root, int key);
     Node* addNode(int key);
+    virtual Node* addNode(Node* root, int key);
 
     void deleteChildren(Node* node);
     void clearTree();
@@ -54,7 +54,6 @@ public:
     BinaryTree copyBinaryTree(Node* node);
 
     int getHeight() const;
-
     int getHeight(Node* node) const;
 
     int size() const;
@@ -62,19 +61,15 @@ public:
     int getCount(const Node* node) const;
 
     int getMaxKey();
-
-    int getMaxKey(Node* node);
+    virtual int getMaxKey(Node* node);
 
     int getMinKey();
-
-    int getMinKey(Node* node);
+    virtual int getMinKey(Node* node);
 
     bool removeNode(int key);
-
-    bool remove(Node* node, int key, Node* parent);
+    virtual bool removeNode(Node* node, int key, Node* parent);
 
     Node* search(int key) const;
-
     Node* search(Node* node, int key) const;
 
     std::vector<int> getVector() const;
@@ -82,21 +77,16 @@ public:
     void getVector(Node* node, std::vector<int>& result) const;
 
     int getLevel(int key);
-
-    int getLevel(Node* node, int key);
+    virtual int getLevel(Node* node, int key);
 
     bool isBalanced(Node* node);
 
     int getSum() const;
-
     int getSum(Node* node) const;
 
     void printHorizontal(Node* root, int marginLeft, int levelSpacing) const;
-    
     void print() const;
-
     void printLevel(int level) const;
-
     void printByLevels(Node* root) const;
 
     BinaryTree& operator=(const BinaryTree& other);

@@ -143,10 +143,10 @@ int BinaryTree::getMinKey(Node* node) {
 }
 
 bool BinaryTree::removeNode(int key) {
-    return remove(m_root, key, nullptr);
+    return removeNode(m_root, key, nullptr);
 }
 
-bool BinaryTree::remove(Node* node, int key, Node* parent) {
+bool BinaryTree::removeNode(Node* node, int key, Node* parent) {
     if (node == nullptr) {
         return false;
     }
@@ -197,9 +197,9 @@ bool BinaryTree::remove(Node* node, int key, Node* parent) {
             temp = temp->getRight();
         }
         node->setKey(temp->getKey());
-        return remove(temp, temp->getKey(), tempParent);
+        return removeNode(temp, temp->getKey(), tempParent);
     }
-    return remove(node->getLeft(), key, node) || remove(node->getRight(), key, node);
+    return removeNode(node->getLeft(), key, node) || removeNode(node->getRight(), key, node);
 }
 
 BinaryTree::Node* BinaryTree::search(int key) const {
