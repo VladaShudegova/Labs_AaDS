@@ -73,6 +73,7 @@ public:
     Node* search(Node* node, const int key) const;
 
     std::vector<int> getVector() const;
+    
 
     void getVector(Node* node, std::vector<int>& result) const;
 

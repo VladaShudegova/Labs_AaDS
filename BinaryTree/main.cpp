@@ -53,23 +53,26 @@ void printLeaves(BinaryTree::Node* node) {
 }
 void refillAndPrint(BinaryTree& tree)
 {
+  
     tree.clearTree();
     int count = 5;
     int stepSize = 10;
     int min = 0;
     int max = min + stepSize * count;
+    cout << max;
     for (int key = min; key <= max; key += stepSize) {
         tree.addNode(tree.getRoot(), key);
     }
     tree.printHorizontal(tree.getRoot(), 5, 5);
+
 }
 
 int main()
 {
+    
     BinaryTreeTester tester(true);
-    tester.test(30);
+    tester.test(130);
+   
 
-    BinaryTree tree = ten_child_tree();
-    tree.printHorizontal(tree.getRoot(), 5, 5);
     return 0;
 }

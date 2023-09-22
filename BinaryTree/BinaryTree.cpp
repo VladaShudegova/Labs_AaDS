@@ -139,7 +139,7 @@ int BinaryTree::getMinKey(Node* node) const {
     if (node == nullptr) {
         return INT_MIN;
     }
-    return max(node->getKey(), max(getMinKey(node->getLeft()), getMinKey(node->getRight())));
+    return min(node->getKey(), max(getMinKey(node->getLeft()), getMinKey(node->getRight())));
 }
 
 bool BinaryTree::removeNode(const int key) {

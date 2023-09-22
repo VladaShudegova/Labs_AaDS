@@ -21,7 +21,7 @@ protected:
     virtual void check_addAndCount(const BinaryTree* tree, const int size);
     virtual void check_remove(const BinaryTree* tree, const int size);
     virtual void check_clear(const BinaryTree* tree, const int size);
-    virtual void check_assign(const std::vector<int> firstTreeNodes, const std::vector<int> secondTreeNodes);
+    virtual void check_assign(const std::vector<const BinaryTree::Node*> firstTreeNodes, const std::vector<const BinaryTree::Node*> secondTreeNodes);
     virtual void check_height(const BinaryTree& tree, const int size);
 
     // tests
@@ -36,6 +36,8 @@ protected:
     void height_longOnlyRightSubtree();
     void height_longOnlyLeftAndRightSubtrees();
     void height_longRandomZigzagSubtrees();
+
+    std::vector<const BinaryTree::Node*> treeNodes( BinaryTree* tree);
 
 protected:
     int m_maxSize;
