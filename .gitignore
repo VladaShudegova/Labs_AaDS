@@ -882,3 +882,17 @@ Network Trash Folder
 Temporary Items
 .apdisk
 .txt
+
+**/.vs
+.DS_store
+**/x64
+**/*.sln
+**/*.filters
+**/*.user
+
+**/.vs
+.DS_store
+**/x64
+**/*.sln
+**/*.filters
+**/*.user
