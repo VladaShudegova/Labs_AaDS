@@ -7,21 +7,28 @@ class BinaryTreeTester
 {
 public:
     BinaryTreeTester(const bool useConsoleOutput);
-    ~BinaryTreeTester() = default;
+    BinaryTreeTester() = default;
+    virtual ~BinaryTreeTester() = default;
 
-    void test(const int size);
+    virtual void test( const int size);
 
 protected:
     // service
     virtual BinaryTree* allocateTree();
-    void deallocateTree(BinaryTree* tree);
+    virtual void deallocateTree(BinaryTree* tree);
     void pressToContinue(const std::string& testName);
 
     // assertions
     virtual void check_addAndCount(const BinaryTree* tree, const int size);
     virtual void check_remove(const BinaryTree* tree, const int size);
     virtual void check_clear(const BinaryTree* tree, const int size);
+    
+
+    void check_assignPtr(const BinaryTree& left, const BinaryTree& right);
+    void check_assignPtr(const BinaryTree::Node* left, const BinaryTree::Node* right);
+    virtual void check_assign(const BinaryTree* tree1, const BinaryTree* tree2);
     virtual void check_assign(const std::vector<const BinaryTree::Node*> firstTreeNodes, const std::vector<const BinaryTree::Node*> secondTreeNodes);
+    virtual void check_assignAndPtrs(const BinaryTree::Node* rootLeft, const BinaryTree::Node* rootRight);
     virtual void check_height(const BinaryTree& tree, const int size);
 
     // tests
@@ -43,4 +50,3 @@ protected:
     int m_maxSize;
     bool m_useConsoleOutput;
 };
-

@@ -15,7 +15,7 @@ public:
     BinaryTree(Node* root);
     virtual ~BinaryTree();
 
-    Node* getRoot();
+    Node* getRoot() const;
 
     virtual Node* addNode(int key);
     virtual Node* addNode(Node* root, int key);
@@ -50,7 +50,7 @@ public:
     virtual Node* search(Node* node, const int key) const;
 
     std::vector<int> getVector() const;
-
+    
 
     void getVector(Node* node, std::vector<int>& result) const;
 

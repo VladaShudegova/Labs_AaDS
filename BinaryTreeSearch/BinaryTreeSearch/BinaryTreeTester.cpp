@@ -1,6 +1,6 @@
 #include "BinaryTreeTester.h"
-
 #include <queue>
+#include <random>
 using std::cout;
 using std::endl;
 using std::vector;
@@ -12,6 +12,7 @@ BinaryTreeTester::BinaryTreeTester(const bool useConsoleOutput)
     m_useConsoleOutput = useConsoleOutput;
     m_maxSize = 0;
 }
+
 
 void BinaryTreeTester::test(const int size)
 {
@@ -46,7 +47,8 @@ void BinaryTreeTester::addAndCount()
     check_addAndCount(tree, 0);
 
     for (int i = 0; i < m_maxSize; ++i) {
-        tree->addNode(i);
+
+        tree->addNode(rand() % 350 - 100);
         check_addAndCount(tree, i + 1);
     }
 
@@ -67,7 +69,7 @@ void BinaryTreeTester::destructor()
     {
         BinaryTree* tree = allocateTree();
         for (int i = 0; i < m_maxSize; ++i) {
-            tree->addNode(i);
+            tree->addNode(rand() % 350 - 100);
         }
         deallocateTree(tree);
     }
@@ -85,8 +87,9 @@ void BinaryTreeTester::remove()
     check_remove(tree, nodeKeys.size());
 
     for (int i = 0; i < m_maxSize; ++i) {
-        nodeKeys.push_back(i);
-        tree->addNode(i);
+        int temp = rand() % 350 - 100;
+        nodeKeys.push_back(temp);
+        tree->addNode(temp);
     }
 
     while (!nodeKeys.empty()) {
@@ -121,7 +124,7 @@ void BinaryTreeTester::clear()
     BinaryTree* tree = allocateTree();
 
     for (int i = 0; i < m_maxSize; i++)
-        tree->addNode(i);
+        tree->addNode(rand() % 350 - 100);
 
     check_clear(tree, m_maxSize);
 
@@ -144,7 +147,7 @@ void BinaryTreeTester::assign()
     BinaryTree* tree2 = allocateTree();
 
     for (int i = 0; i < m_maxSize; ++i)
-        tree1->addNode(i);
+        tree1->addNode(rand() % 350 - 100);
 
     *tree2 = *tree1;
     check_assign(treeNodes(tree1), treeNodes(tree2));
@@ -301,4 +304,43 @@ void BinaryTreeTester::height_longRandomZigzagSubtrees()
     pressToContinue("height_longRandomZigzagSubtrees");
 }
 
+void BinaryTreeTester::check_assignPtr(const BinaryTree::Node* left, const BinaryTree::Node* right) {
+    assert(left != right);
+    if (left == nullptr || right == nullptr) {
+        return;
+    }
+    check_assignPtr(left->getLeft(), right->getLeft());
+    check_assignPtr(left->getRight(), right->getRight());
+
+}
+
+void BinaryTreeTester::check_assignPtr(const BinaryTree& left, const BinaryTree& right) {
+    check_assignPtr(left.getRoot(), right.getRoot());
+}
+
+void BinaryTreeTester::check_assign(const BinaryTree* tree1, const BinaryTree* tree2) {
+    assert(tree1->size() == tree2->size());
+
+    const vector<int> tree1Keys = tree1->getVector();
+    const vector<int> tree2Keys = tree1->getVector();
+
+    assert(tree1Keys == tree2Keys);
+
+    check_assignAndPtrs(tree1->getRoot(), tree2->getRoot());
+
+}
+
+
+ void BinaryTreeTester::check_assignAndPtrs(const BinaryTree::Node* rootLeft, const BinaryTree::Node* rootRight) {
+     if (rootLeft == nullptr || rootRight == nullptr) {
+         return;
+     }
+
+     assert(rootLeft->getKey() == rootRight->getKey());
+     assert(rootLeft != rootRight);
+
+     check_assignAndPtrs(rootLeft->getLeft(), rootRight->getLeft());
+     check_assignAndPtrs(rootLeft->getRight(), rootRight->getRight());
+
+}
 

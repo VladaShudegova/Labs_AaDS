@@ -14,11 +14,13 @@ BinaryTree::Node* BinaryTreeSearch::addNode(Node* root, int key){
 
 	if (!root) {
 		root = new Node(key);
+		return root;
 	}
-	else if (root->getKey() > key) {
+	
+	if (root->getKey() > key) {
 		root->setLeft(addNode(root->getLeft(), key));
 	}
-	else if(root->getKey() <= key) {
+	else  {
 		root->setRight(addNode(root->getRight(), key));
 	}
 

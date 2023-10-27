@@ -36,7 +36,7 @@ BinaryTree::~BinaryTree() {
     clearTree();
 }
 
-BinaryTree::Node* BinaryTree::getRoot() {
+BinaryTree::Node* BinaryTree::getRoot() const {
     return m_root;
 }
 
@@ -224,8 +224,9 @@ vector<int> BinaryTree::getVector() const {
 
 void BinaryTree::getVector(BinaryTree::Node* node, vector<int>& result) const {
     if (node != nullptr) {
-        result.push_back(node->getKey());
+        
         getVector(node->getLeft(), result);
+        result.push_back(node->getKey());
         getVector(node->getRight(), result);
     }
 }
@@ -379,7 +380,7 @@ BinaryTree& BinaryTree::operator=(const BinaryTree& other) {
     if (this != &other) {
 
         clearTree();
-        // Копируем корень и остальные узлы
+        
         if (other.m_root != nullptr) {
             m_root = other.m_root->copyNode();
         }
