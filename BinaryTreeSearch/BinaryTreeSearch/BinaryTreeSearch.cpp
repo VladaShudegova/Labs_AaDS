@@ -1,5 +1,5 @@
 #include "BinaryTreeSearch.h"
-
+using std::vector;
 
 
 BinaryTreeSearch::BinaryTreeSearch(Node* root) {
@@ -161,4 +161,64 @@ int BinaryTreeSearch::getlevelNode(const int key) {
 		return -1; 
 	}
 	return getHeight() - getHeight(levelNode);
+}
+
+BinaryTree::Node* createOptimalTree(std::vector<int> d, std::vector<int> &p, std::vector<int> &q){
+    d.insert(d.begin() , 0);
+    p.insert(p.begin() , 0);
+    int treeSize = d.size();
+
+
+    vector<vector<int>> weight(treeSize, vector<int>(treeSize, 0)); // матрица весов - W
+    vector<vector<int>> price(treeSize, vector<int>(treeSize, 0)); // матрица стоимости - С
+    vector<vector<int>> keyNumbers(treeSize, vector<int>(treeSize, 0)); // матрица номеров ключей в корнях поддеревьев - R
+
+    for (int i = 0 ; i<treeSize ; i++)  // заполнение диагоналей матриц W и С
+    {
+        weight[i][i] = q[i];
+        price[i][i] = q[i];
+    }
+
+    // заполнили вторую диагональ у всех матриц
+    for(int i = 0; i<treeSize-1; i++)
+    {
+        int j = i+1;
+        weight[i][j] = weight[i][j-1] + p[j] + q[j];
+        price[i][j] = weight[i][j] + price[i][i] + price[j][j];
+        keyNumbers[i][j] = j;
+    }
+
+    if ( (treeSize - 1) >=2 ) // генерируем матрицу R, для построения дерева
+    {
+        for(int k = 2 ; k < treeSize; k++)
+        {
+            for(int i = 0 ; i < treeSize - 2 ; i++)
+            {
+                int j = i + k;
+                if(j > treeSize - 1)
+                {
+                    break;
+                }
+                weight[i][j] = weight[i][j-1] + p[j] + q[j];
+                int index = i + 1;
+                int minCost = price[i][index-1]+price[index][j];
+                int temp = index;
+                for (index = i+1; index<=j ; index++)
+                {
+                    if ( (price[i][index-1] + price[index][j]) < minCost)
+                    {
+                        minCost = price[i][index-1] + price[index][j];
+                        temp = index;
+                    }
+                }
+
+                price[i][j] = weight[i][j] + minCost;
+                keyNumbers[i][j] = temp;
+            }
+        }
+    }
+
+
+
+
 }

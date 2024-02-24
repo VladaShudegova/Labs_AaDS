@@ -1,0 +1,10 @@
+# ninja log v5
+846	914	1707820115546409796	BinaryTreeSearch	1fd17cd2862212e3
+0	459	1708096900617168068	CMakeFiles/BinaryTree.h.dir/Source.cpp.o	84f6db9594c12326
+0	469	1708096900627833578	CMakeFiles/BinaryTree.h.dir/BinaryTreeSearch.cpp.o	b4bef9ee792e7672
+0	478	1708096900638513047	CMakeFiles/BinaryTree.h.dir/BinaryTreeSearchTester.cpp.o	11e2a84f71be41cc
+0	557	1708096900715564158	CMakeFiles/BinaryTree.h.dir/BinaryTree.cpp.o	701f12965e08e1f
+0	602	1708096900758704898	CMakeFiles/BinaryTree.h.dir/BinaryTreeTester.cpp.o	1f8318fd6b253b39
+602	646	1708096900807845111	BinaryTree.h	cd3a8d2a9d3d07a8
+33	6667	1708804117350221203	CMakeFiles/BinaryTree.h.dir/Source.cpp.o	84f6db9594c12326
+6667	10220	1708804120905731785	BinaryTree.h	cd3a8d2a9d3d07a8
