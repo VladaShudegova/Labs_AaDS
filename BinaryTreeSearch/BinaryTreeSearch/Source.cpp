@@ -12,16 +12,16 @@ using std::endl;
 int main() {
 	srand(time(0));
 
-    std::vector<int> keys = {10,20,30,40};
-    std::vector<int> freq = {2,1,1,5};
+    std::vector<int> keys = {5,19,23,38};
+    std::vector<int> freq = {10,1,1,5};
     std::vector<int> extraFreq = {1,10,1,1,10};
 
     BinaryTreeSearch tree;
     tree.createOptimalTree(keys , freq , extraFreq);
 
+    tree.print();
+    cout << endl;
 
-	//BinaryTreeSearchTester test;
-	//test.test(220);
 
 	return 0;
 }

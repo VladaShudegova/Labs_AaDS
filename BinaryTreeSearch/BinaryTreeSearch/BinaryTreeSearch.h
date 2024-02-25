@@ -44,7 +44,7 @@ public:
 
 	BinaryTreeSearch& operator=(const BinaryTreeSearch& other);
     Node* createOptimalTree(std::vector<int> d, std::vector<int> &p, std::vector<int> &q);
-    Node* createOptimalTree(std::vector<int> &d,int** matrix,int i , int j);
+    Node* createOptimalTree(std::vector<int> &d,std:: vector<std::vector<int>> &matrix,int i , int j);
 
 };
 

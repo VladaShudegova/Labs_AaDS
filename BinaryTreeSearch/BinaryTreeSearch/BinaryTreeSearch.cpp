@@ -163,7 +163,7 @@ int BinaryTreeSearch::getlevelNode(const int key) {
 	return getHeight() - getHeight(levelNode);
 }
 
-BinaryTree::Node* createOptimalTree(std::vector<int> d, std::vector<int> &p, std::vector<int> &q){
+BinaryTree::Node* BinaryTreeSearch::createOptimalTree(std::vector<int> d, std::vector<int> &p, std::vector<int> &q){
     d.insert(d.begin() , 0);
     p.insert(p.begin() , 0);
     int treeSize = d.size();
@@ -218,7 +218,25 @@ BinaryTree::Node* createOptimalTree(std::vector<int> d, std::vector<int> &p, std
         }
     }
 
+    m_root = createOptimalTree(d, keyNumbers, 0 , treeSize-1);
 
+    return m_root;
+}
 
+BinaryTree::Node* BinaryTreeSearch::createOptimalTree(std::vector<int> &d, std::vector<std::vector<int>>  &matrix,int i , int j){
 
+    Node* root;
+    if(i>=j)
+    {
+        root = nullptr;
+        return root;
+    }
+    else
+    {
+        int k = matrix[i][j];
+        root = new Node(d[k]);
+        root->setLeft(createOptimalTree(d,matrix,i, k-1));
+        root->setRight(createOptimalTree(d,matrix,k,j));
+    }
+    return root;
 }
