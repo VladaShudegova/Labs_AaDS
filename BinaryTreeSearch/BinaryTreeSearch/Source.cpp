@@ -12,12 +12,12 @@ using std::endl;
 int main() {
 	srand(time(0));
 
-    std::vector<int> keys = {5,19,23,38};
-    std::vector<int> freq = {10,1,1,5};
-    std::vector<int> extraFreq = {1,10,1,1,10};
+    std::vector<int> keys       = { 5, 11, 19, 21, 23, 38, 44};
+    std::vector<int> freq       = {10,  1,  1, 500,  1, 100, 1};
+    std::vector<int> extraFreq = {10,  1,  221,  101, 10, 0,   0, 0};
 
     BinaryTreeSearch tree;
-    tree.createOptimalTree(keys , freq , extraFreq);
+    tree = BinaryTreeSearch::createOptimalTree(keys , freq , extraFreq);
 
     tree.print();
     cout << endl;

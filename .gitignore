@@ -896,3 +896,4 @@ Temporary Items
 **/*.sln
 **/*.filters
 **/*.user
+**/cmake-build-debug/
