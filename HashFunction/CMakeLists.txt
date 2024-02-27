@@ -4,5 +4,6 @@ project(HashFunction)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(HashFunction main.cpp
-        cmake-build-debug/HashFunctions.cpp
-        cmake-build-debug/HashFunctions.h)
+        cmake-build-debug/HashTable.cpp
+        cmake-build-debug/HashTable.h
+)
