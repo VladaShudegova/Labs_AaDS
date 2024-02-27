@@ -39,7 +39,7 @@ void HuffmanTree::removalAuxiliary(Node* node)
 
 void HuffmanTree::build(const std::string& text)
 {
-	removal();
+	removal();  //удаляем старые узлы
 
 	int frequencies[256] = {};
 
@@ -48,11 +48,11 @@ void HuffmanTree::build(const std::string& text)
 		frequencies[text[i]]++;
 	}
 
-	std::list<Node*> nodes;
+	std::list<Node*> nodes; //список элементов, содержащих символы исх текста и их частоты
 
 	for (int i = 0; i < 256; i++)
 	{
-		if (frequencies[i] == 0)
+		if (frequencies[i] == 0)    //символы, которые не встретились в тексте
 		{
 			continue;
 		}
@@ -67,6 +67,7 @@ void HuffmanTree::build(const std::string& text)
 
 	while (nodes.size() > 1)
 	{
+        //отсортировываем список после добавления объединенного узла
 		nodes.sort([](Node* left, Node* right)
 			{
 				return (left->getFrequency()) < (right->getFrequency());
@@ -86,7 +87,7 @@ void HuffmanTree::build(const std::string& text)
 		nodes.push_back(root);
 	}
 
-	m_root = *(nodes.begin());
+	m_root = *(nodes.begin());  //корень всего дерева
 }
 
 double HuffmanTree::encode(const std::string& text, std::string& encodedText)
@@ -105,7 +106,8 @@ double HuffmanTree::encode(const std::string& text, std::string& encodedText)
 
 		if (symbols.find(huffmanChar) == symbols.end())
 		{
-			return -1;
+            cout<< huffmanChar <<": ";
+			return -1;   //дерево построено не верно
 		}
 
 		if (symbols.size() == 1)
@@ -143,7 +145,7 @@ double HuffmanTree::encode(const std::string& text, std::string& encodedText)
 		}
 	}
 
-	return double(encodedText.size()) / double(text.size() * 8);
+	return double(encodedText.size()) / double(text.size() * 8); //находим коэффециент сжатия
 }
 
 bool HuffmanTree::decode(const std::string& encodedText, std::string& decodedText) const
@@ -152,7 +154,7 @@ bool HuffmanTree::decode(const std::string& encodedText, std::string& decodedTex
 
 	Node* node = m_root;
 
-	if (node == nullptr)
+	if (node == nullptr)        //ошибка в декодировании корня дерева
 	{
 		return false;
 	}
