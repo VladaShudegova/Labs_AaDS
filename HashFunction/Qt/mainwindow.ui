@@ -47,14 +47,21 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Change hash function</string>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
-        <property name="isHash" stdset="0">
-         <bool>true</bool>
-        </property>
-       </widget>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>Change hash function</string>
+          </property>
+          <property name="isHash" stdset="0">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

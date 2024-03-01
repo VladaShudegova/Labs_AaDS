@@ -138,16 +138,19 @@ public:
     {
         return m_nodeCount;
     }
-    int getisFirstHash()
+    bool getisFirstHash()
     {
-        return m_nodeCount;
+        return firstHash;
+    }
+    HashFunction* getHashFunction(){
+        return m_hashFunction;
     }
 
 private:
     std::vector<Node*> m_nodes;
     int m_nodeCount;
     int m_capacity;
-    bool firstHash = true;
+    bool firstHash = false;
     HashFunction *m_hashFunction = nullptr;
 
 
@@ -161,6 +164,7 @@ private:
     {
         firstHash = flag;
     }
+
 
 
     void setHashFunction(HashFunction* hashFunction) 

@@ -6,7 +6,7 @@ HashTable::HashTable()
 {
     m_nodeCount = 0;
     setCapacity(10);
-    setHashFunction(new FirstHash());
+    setHashFunction(new SecondHash());
 }
 
 
@@ -14,7 +14,7 @@ HashTable::HashTable(int size)
 {
     m_nodeCount = 0;
     setCapacity(size);
-    setHashFunction(new FirstHash());
+    setHashFunction(new SecondHash());
 }
 
 HashTable::HashTable(const HashTable& copy)
@@ -194,9 +194,10 @@ void HashTable::changeHashFunction(HashFunction* newHashFunction) {
     // Создаем временный вектор узлов для хранения всех элементов
     std::vector<Node*> allNodes;
     for (Node* node : m_nodes) {
-        while (node) {
-            allNodes.push_back(node);
-            node = node->getNextNode();
+        Node* currentNode = node;
+        while (currentNode) {
+            allNodes.push_back(new Node(currentNode->getKey(), currentNode->getValue()));
+            currentNode = currentNode->getNextNode();
         }
     }
 
@@ -210,4 +211,6 @@ void HashTable::changeHashFunction(HashFunction* newHashFunction) {
     for (Node* node : allNodes) {
         add(node->getKey(), node->getValue());
     }
+
+    printTable();
 }
