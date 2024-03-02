@@ -120,24 +120,28 @@ void MainWindow::printTableInUI()
     ui->tableWidget->clearContents();
 
     HashFunction *hashFunction = table.getHashFunction();
-    for(int i = 0; i < table.getCapacity(); i++){
-        int key = table.getNodes()[i]->getKey();
-        int value = table.getCapacity();
-        int hash = hashFunction->hash(key, value);
-        QTableWidgetItem *item = ui->tableWidget->item(hash, 0);
-        //ui->tableWidget->setItem(hash,0, item);
 
+    for( int i = 0; i < table.getCapacity(); i++)
+    {
+        //qDebug()<<"Item: (" << table.getNodes()[i]->getKey() << ", " << table.getNodes()[i]->getValue() << ") /n";
+        if(table.getNodes()[i])
+        {
+            int key = table.getNodes()[i]->getKey();
+            int value = table.getNodes()[i]->getValue();
+            int hash = hashFunction->hash(key, table.getCapacity());
+            QTableWidgetItem *item = ui->tableWidget->item(hash, 0);
 
-        if (item) {
-            QString existingData = item->text();
-            existingData += QString(" [%1, %2]").arg(QString::number(key), QString::number(value));
-            ui->tableWidget->setItem(hash, 0, new QTableWidgetItem(existingData));
+            if (item) {
+                QString existingData = item->text();
+                existingData += QString(" [%1, %2]").arg(QString::number(key), QString::number(value));
+                ui->tableWidget->setItem(hash, 0, new QTableWidgetItem(existingData));
+            }
+            else {
+                ui->tableWidget->setItem(hash, 0, new QTableWidgetItem(QString("[%1, %2]").arg(QString::number(key), QString::number(value))));
+            }
         }
-        else {
-            ui->tableWidget->setItem(hash, 0, new QTableWidgetItem(QString("[%1, %2]").arg(QString::number(key), QString::number(value))));
-        }
 
-    }
+     }
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -163,10 +167,10 @@ void MainWindow::on_pushButton_clicked()
         // Смена хеш-функции для объекта table
         table.changeHashFunction(newHashFunction);
 
-        ui->deleteValueButton->setEnabled(false);
+        //ui->deleteValueButton->setEnabled(false);
         table.printTable();
         // Очистка выделенной памяти после использования
-        delete newHashFunction;
+        //delete newHashFunction;
         printTableInUI();
 
 }

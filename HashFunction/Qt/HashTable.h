@@ -151,7 +151,7 @@ private:
     int m_nodeCount;
     int m_capacity;
     bool firstHash = false;
-    HashFunction *m_hashFunction = nullptr;
+    HashFunction *m_hashFunction = new SecondHash();
 
 
     void setCapacity(int newCapacity) 
