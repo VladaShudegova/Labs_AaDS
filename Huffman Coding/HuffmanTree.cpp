@@ -2,6 +2,7 @@
 #include <string>
 #include <list>
 #include <set>
+#include <fstream>
 
 #include "HuffmanTree.h"
 
@@ -89,6 +90,47 @@ void HuffmanTree::build(const std::string& text)
 
 	m_root = *(nodes.begin());  //корень всего дерева
 }
+void HuffmanTree::encodeFile(const std::string& inputFile, const std::string& outputFile) {
+    // Создаем объект класса HuffmanTree
+    HuffmanTree huffmanTree;
+
+    // Открываем исходный файл для чтения
+    std::ifstream inFile(inputFile);
+    if (!inFile.is_open()) {
+        std::cerr << "Error: Unable to open input file!" << std::endl;
+        return; // Завершаем метод в случае ошибки
+    }
+
+    // Считываем содержимое файла в строку
+    std::string text((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+
+    // Строим дерево Хаффмана из текста файла с помощью объекта HuffmanTree
+    huffmanTree.build(text);
+
+    // Кодируем текст
+    std::string encodedText;
+    double compressionRatio = huffmanTree.encode(text, encodedText);
+
+    // Закрываем файл
+    inFile.close();
+
+    // Сохраняем закодированный текст в выходной файл
+    if (compressionRatio != -1) {
+        // Открываем файл для записи закодированного текста
+        std::ofstream outFile(outputFile);
+        if (outFile.is_open()) {
+            outFile << encodedText;
+            outFile.close();
+            std::cout << "Encoded text saved to: " << outputFile << std::endl;
+        } else {
+            std::cerr << "Error: Unable to open output file for writing!" << std::endl;
+        }
+    } else {
+        std::cerr << "Error: Encoding failed!" << std::endl;
+    }
+}
+
+
 
 double HuffmanTree::encode(const std::string& text, std::string& encodedText)
 {

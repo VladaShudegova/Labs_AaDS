@@ -13,17 +13,19 @@ public:
 	~HuffmanTree();
 	void removal();
 
-	void build(const std::string& text);
+    double encode(const std::string& text, std::string& encodedText);
 
-	double encode(const std::string& text, std::string& encodedText);
-
-	bool decode(const std::string& encodedText, std::string& decodedText) const;
+    void encodeFile(const std::string& inputFile, const std::string& outputFile);
 
 private:
 	Node* m_root;
 
+
 private:
-	void removalAuxiliary(Node* node);
+    void build(const std::string& text);
+
+    bool decode(const std::string& encodedText, std::string& decodedText) const;
+    void removalAuxiliary(Node* node);
 };
 
 class HuffmanTree::Node

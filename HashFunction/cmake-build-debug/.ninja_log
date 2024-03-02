@@ -1,0 +1,4 @@
+# ninja log v5
+0	438	1709015162517620894	CMakeFiles/HashFunction.dir/main.cpp.o	1b5ed924557892a0
+7	46	1709015511686079388	CMakeFiles/HashFunction.dir/HashFunctions.cpp.o	c7910f654893d959
+46	99	1709015511738237130	HashFunction	4224bb9b713e95f2

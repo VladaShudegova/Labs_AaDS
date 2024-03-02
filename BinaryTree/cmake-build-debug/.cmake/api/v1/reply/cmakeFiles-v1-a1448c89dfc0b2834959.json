@@ -1163,8 +1163,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/vladashudegova/dev/Labs_TSU/Labs_AaDS/Huffman Coding/cmake-build-debug",
-		"source" : "/Users/vladashudegova/dev/Labs_TSU/Labs_AaDS/Huffman Coding"
+		"build" : "/Users/vladashudegova/dev/Labs_TSU/Labs_AaDS/BinaryTree/cmake-build-debug",
+		"source" : "/Users/vladashudegova/dev/Labs_TSU/Labs_AaDS/BinaryTree"
 	},
 	"version" : 
 	{
